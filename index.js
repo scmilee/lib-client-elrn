@@ -3,82 +3,84 @@ import ElrnWallet from 'lib-client-elrn-wallet'
 
 
 export default class Elrn {
-	constructor(){
+	constructor(options){
 		let defaultOptions = {};
+        this.elrnIdentity = new ElrnID(defaultOptions);
+        this.elrnWallet = new ElrnWallet(defaultOptions);
 		this.options = Object.call(defaultOptions, options);
 	}
 	//elrnID library function calls
-	isUserSignedIn(){
-		return ElrnID.isUserSignedIn();
+	isUserSignedIn (){
+		return this.elrnIdentity.isUserSignedIn();
 	}
-	redirectToSignIn(redirectURI, manifestURI, permissionsArray){
-		return ElrnID.redirectToSignIn(redirectURI, manifestURI, permissionsArray);
+	redirectToSignIn (redirectURI, manifestURI, permissionsArray){
+		return this.elrnIdentity.redirectToSignIn(redirectURI, manifestURI, permissionsArray);
 	}
-	isSignInPending(){
-		return ElrnID.isSignInPending();
+	isSignInPending (){
+		return this.elrnIdentity.isSignInPending();
 	}
-	handlePendingSignIn(nameURL){
-		return ElrnID.handlePendingSignIn(nameURL);
+	handlePendingSignIn (nameURL){
+		return this.elrnIdentity.handlePendingSignIn(nameURL);
 	}
-	loadUserData(){
-		return ElrnID.loadUserData();
+	loadUserData (){
+		return this.elrnIdentity.loadUserData();
 	}
-	signUserOut(optionalRedirect){
-		return ElrnID.signUserOut(optionalRedirect);
+	signUserOut (optionalRedirect){
+		return this.elrnIdentity.signUserOut(optionalRedirect);
 	}
-	putFile(filePath,content, options){
-		return ElrnID.putFile(filePath,content,options);
+	putFile (filePath,content, options){
+		return this.elrnIdentity.putFile(filePath,content,options);
 	}
-	getFile(filePath, options){
-		return ElrnID.getFile(filePath, options);
+	getFile (filePath, options){
+		return this.elrnIdentity.getFile(filePath, options);
 	}
 	//elrnWallet library function calls
 	createSeed () {
-        return ElrnWallet.createSeed();
+        return this.elrnWallet.createSeed();
     }
     seedToMnemonic (seed) {
-        return ElrnWallet.seedToMnemonic(seed);
+        return this.elrnWallet.seedToMnemonic(seed);
     }
     mnemonicToSeed (mnemonic) {
-        return ElrnWallet.mnemonicToSeed(mnemonic);
+        return this.elrnWallet.mnemonicToSeed(mnemonic);
     }
     seedToAddress (seed, derivePath, network) {
-        return ElrnWallet.seedToAddress(seed, derivePath, network);
+        return this.elrnWallet.seedToAddress(seed, derivePath, network);
     }
     seedToPublicKey (seed, derivePath, network) {
-        return ElrnWallet.seedToPublicKey(seed, derivePath, network);
+        return this.elrnWallet.seedToPublicKey(seed, derivePath, network);
     }
     publicKeyToSegwitAddress (publicKey, derivePath, network) {
-        return ElrnWallet.publicKeyToSegwitAddress(publicKey, derivePath, network);
+        return this.elrnWallet.publicKeyToSegwitAddress(publicKey, derivePath, network);
     }
     seedPrivateKeyToEthereumAddress (seedPrivateKey, derivePath) {
-        return ElrnWallet.seedPrivateKeyToEthereumAddress(seedPrivateKey, derivePath);
+        return this.elrnWallet.seedPrivateKeyToEthereumAddress(seedPrivateKey, derivePath);
     }
     exchangeRate (pair) {
-        return ElrnWallet.exchangeRate(pair)
+        return this.elrnWallet.exchangeRate(pair)
     }
     coins () {
-        return ElrnWallet.coins();
+        return this.elrnWallet.coins();
     }
     depositLimit (pair) {
-        return ElrnWallet.depositLimit(pair);
+        return this.elrnWallet.depositLimit(pair);
     }
     emailReceipt (emailAddress, txId) {
-        return ElrnWallet.emailReceipt(emailAddress, txId);
+        return this.elrnWallet.emailReceipt(emailAddress, txId);
     }
     isDown (pair) {
-        return ElrnWallet.isDown();
+        return this.elrnWallet.isDown();
     }
     marketInfo () {
-        return ElrnWallet.marketInfo();
+        return this.elrnWallet.marketInfo();
     }
     recent () {
-        return ElrnWallet.recent();
+        return this.elrnWallet.recent();
     }
     shift (withdrawalAddress, pair, shapeshiftOptions) {
-        return ElrnWallet.shift(withdrawalAddress, pair, shapeshiftOptions);
+        return this.elrnWallet.shift(withdrawalAddress, pair, shapeshiftOptions);
     }
     shapeShiftStatus (depositAddress) {
-        return ElrnWallet.shapeShiftStatus(depositAddress);
+        return this.elrnWallet.shapeShiftStatus(depositAddress);
     }
 };
