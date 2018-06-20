@@ -1,0 +1,11 @@
+{
+  "name": "lib-client-elrn-identity",
+  "version": "0.0.1",
+  "description": "blockstack wrapper",
+  "main": "index.js",
+  "repository": {
+    "type": "git"
+  },
+  "author": "Dylan Drudge",
+  "license": "ISC"
+}
