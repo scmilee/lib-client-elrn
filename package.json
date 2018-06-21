@@ -1,7 +1,7 @@
 {
   "name": "lib-client-elrn",
   "version": "0.0.1",
-  "description": "blockstack wrapper",
+  "description": "elrn library",
   "main": "index.js",
   "repository": {
     "type": "git"
