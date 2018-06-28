@@ -7,5 +7,8 @@
     "type": "git"
   },
   "author": "Dylan Drudge",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lib-client-elrn-wallet": "0.0.18"
+  }
 }
